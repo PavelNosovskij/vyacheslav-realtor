@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: #0A022A;
+    color: white;
+    }
+    header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:20px 40px;
+    }
+    .logo-block {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    }
+    .icon-up {
+    width:45px;
+    height:45px;
+    background-color: rgba(217, 119, 6, 0.1);
+    border-radius: 10px;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    color: #F59E0B;
+    font-size: 22px;
+    border: 2px solid #F59E0B;
+    }
+    .logo-text h1 {
+    margin: 0;
+    font-size: 25px;
+    color: white;
+    line-height:1;
+    }
+    .logo-text p {
+    margin: 4px 0 0 0;
+    font-size: 14px;
+    color: chocolate;
+    }
+    .navigation {
+    display:flex;
+    gap: 25px;
+    }
+    .navigation a {
+    text-decoration: none;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color:#C3C0C0;
+    transition:color 0.2s;
+    right: 1000px;
+    }
+    .navigation a:hover {
+    color: white;
+    }
+    .navigation a.active {
+    color: chocolate;
+    }
+    .linear{
+    border: none;
+    height: 1px;
+    background-color: #1B0446;
+    margin: 20px 0;    
+    }
+    .information_1{
+    text-align: center;
+    margin: 30px auto 40px auto;
+    }
+    .information_1 h1{
+    font-size: 45px;
+    color:#fff;
+    line-height: 1.1;
+    font-weight: bold;
+    margin: 0 0 10px 0;
+    }
+    .information_1 p{
+    font-size: 18px;
+    color:#C3C0C0;
+    margin: 0;
+    }
+    .main-container{
+    display: flex;
+    gap:40px;
+    max-width: 1400px;
+    margin: 40px auto 60px auto;
+    padding: 0 40px;
+    box-sizing: border-box;
+    align-items:stretch;
+    }
+    .left-column{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    }
+    .contacts-list{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    }
+    .contact-item{
+    display:flex;
+    align-items: center;
+    gap: 20px;
+    padding:32px 10px;
+    border: 1px solid #f5780b;
+    background-color: #ffffff0d;
+    border-radius: 18px;
+    box-sizing: border-box;
+    text-decoration: none;
+    transition:border-color 0.2s;
+    }
+    .contact-item:hover{
+    border-color: #f59e0b;
+    }
+    .contact-item img{
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    margin-left: 10px;
+    }
+    .contact-item img.tiktok-icon{
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    margin-left: 0px;
+    margin-right: -10px;
+    }
+    .contact-info {
+    display: flex;
+    flex-direction: column;
+    }
+    .contact-info p{
+    font-size: 19px;
+    color:#C3C0C0;
+    margin: 0 0 4px 0;
+    }
+    .contact-info h1{
+    font-size: 34px;
+    color:#fff;
+    line-height: 1.2;
+    margin: 0;
+    font-weight: bold;
+    }
+    .message-form{
+    flex: 1;
+    border: 1px solid #f5780b;
+    background-color: #ffffff0d; 
+    border-radius: 20px; 
+    padding: 25px ;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    }
+    .message-form h1{
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0 0 10px 0;
+    color:#fff;
+    }
+    .message-form p{
+    font-size: 16px;
+    color:#C3C0C0;
+    margin: 5px 0 20px 0;
+    }
+    .input-field {
+    background-color: #0A022A;
+    border: 1px solid #f5780b;
+    border-radius: 10px;
+    padding: 12px 16px;
+    color: #fff;
+    width: 100%;
+    box-sizing: border-box;
+    outline: none;
+    font-size: 15px;
+    margin-bottom: 20px;
+    transition: border-color 0.2s;
+    }
+    .input-field:focus{
+    border-color: #F59E0B;
+    }
+    .input-field::placeholder{
+    color: #C3C0C0;
+    }
+    textarea.input-field{
+    resize:none;
+    height:120px;
+    font-family: sans-serif;
+    }
+    .submit-btn {
+    width: 100%;
+    padding:16px;
+    background-color: #f5780b;
+    border: none;
+    border-radius: 15px;
+    color: #000000;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: auto;
+    }
+    .submit-btn:hover{
+    background-color: #d97706;
+    }
+    .footer{  
+    background-color: #040110;
+    text-align: center;
+    padding: 30px;
+    font-size: 14px;
+    }
+    .footer p {
+    color: #696868;
+    }
+    </style>
+</head>
+<body>
+<header class="header">
+    <div class="logo-block">
+    <div class="icon-up"><b>В</b></div>
+    <div class="logo-text">
+    <h1>Вячеслав</h1>
+    <p>Недвижимость в Караганде</p>
+    </div>
+    </div>
+    <div class="navigation">
+    <a href="index.html" style="color: #C3C0C0;">Главная</a>
+    <a href="services.html" style="color: #C3C0C0;">Услуги и ипотека</a>
+    <a href="reviews.html" style="color: #C3C0C0;">Отзывы</a>
+    <a href="contacts.html" style="color: chocolate;">Контакты</a>
+    </div>
+    </header>
+    <hr class="linear">
+    <div class="information_1">
+    <h1>Свяжитесь со мной</h1>
+    <p>Всегда на связи для консультаций по недвижимости в Караганде.</p>
+    </div>  
+    <div class="main-container">
+    <div class="left-column">
+    <div class="contacts-list">
+    <a href="https://wa.me/77052549032" target="_blank" class="contact-item">
+    <img src="фотографии/WhatsApp.svg.webp" alt="WhatsApp">
+    <div class="contact-info">
+    <p>WhatsApp</p>
+    <h1>+7 705 254-90-32</h1>
+    </div>
+    </a>
+    <a href="https://instagram.com/rieltor_krg" target="_blank" class="contact-item">
+    <img src="фотографии/Instagram.svg" alt="Instagram">
+    <div class="contact-info">
+    <p>Instagram</p>
+    <h1>rieltor_krg</h1>
+    </div>
+    </a>
+    <a href="https://tiktok.com/@rieltor_krg" target="_blank" class="contact-item">
+    <img src="фотографии/tik-tok.png" alt="TikTok" class="tiktok-icon">
+    <div class="contact-info">
+    <p>Tik-tok</p>
+    <h1>rieltor_krg</h1>
+    </div>
+    </a>
+    <a href="mailto:Vyacheslav_rieltor@gmail.com" class="contact-item">
+    <img src="фотографии/mail.webp" alt="Почта">
+    <div class="contact-info">
+    <p>Почта</p>
+    <h1>Vyacheslav_rieltor@gmail.com</h1>
+    </div>
+    </a>
+    </div>
+    </a>
+    </div>
+    <div class="message-form">
+    <h1>Оставить соообщение</h1>
+    <p>Есть вопросы или хотите обговорить детали? Напишите мне напрямую.</p>
+    <h2>Ваше имя</h2>
+    <input type="text" placeholder="Введите ваше имя" class="input-field">
+    <h2>Номер телефона</h2>
+    <input type="text" placeholder="Введите ваш номер телефона" class="input-field">
+    <h2>Сообщение</h2>
+    <textarea placeholder="Введите ваше сообщение" class="input-field"></textarea>
+    <button class="submit-btn" id="sendMsgBtn">Отправить сообщение</button>
+    </div>
+    </div>
+    <div class="footer">
+    <p>© 2026 Риэлтор Вячеслав. Недвижимость в Караганде.</p>
+    </div>
+    <script>
+    //document.getElementById("sendMgBtn").addEventListener("click" ,async()=>{
+    //const inputs=document.querySelectorAll('.input-field')
+    //const name=inputs[0].value.trim()
+    //const phone=inputs[1].value.trim()
+   // const msg=inputs[2].value.trim()
+    //if(!phone||!name){
+    //alert('Введи номер и имя!')
+   //return;
+   // }
+    //const message=`<b>📩 Новое сообщение с сайта!</b>\n\n<b>Имя:</b> ${name}\n<b>Телефон:</b> ${phone}\n<b>Сообщение:</b> ${msg || 'Не указано'}`;
+    //if(typeof sendToTelegram==="function"){
+    //await sendToTelegram
+    //}   
+    //alert('Спасибо!Ваше сообщение доставлено Вячеславу')
+    //inputs.forEach(input=>input.value='')
+    //})
+    document.getElementById('sendMsgBtn').addEventListener('click',async()=>{
+    const inputs=document.querySelectorAll('.input-field')
+    const name=inputs[0].value.trim()
+    const phone=inputs[1].value.trim()
+    const msg=inputs[2].value.trim()
+    if(!name || !phone){
+    alert("Пожалуйста,введи имя и номер телефона для сообщения")
+    return;
+    }
+    const message=`<b>📩 Новое сообщение с сайта!</b>\n\n<b>Имя:</b> ${name}\n<b>Телефон:</b> ${phone}\n<b>Сообщение:</b> ${msg || 'Не указано'}`
+    if(typeof sendToTelegram==='function'){
+    await sendToTelegram(message)
+    }
+    alert('Спвсибо!Ваше сообщение отправлено Вячеславу!')
+    inputs.forEach(inputs=>inputs.value='')
+    })
+    </script>
+</body>
+</html>

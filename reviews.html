@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: #0A022A;
+    color: white;
+    }
+    header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:20px 40px;
+    }
+    .logo-block {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    }
+    .icon-up {
+    width:45px;
+    height:45px;
+    background-color: rgba(217, 119, 6, 0.1);
+    border-radius: 10px;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    color: #F59E0B;
+    font-size: 22px;
+    border: 2px solid #F59E0B;
+    }
+    .logo-text h1 {
+    margin: 0;
+    font-size: 25px;
+    color: white;
+    line-height:1;
+    }
+    .logo-text p {
+    margin: 4px 0 0 0;
+    font-size: 14px;
+    color: chocolate;
+    }
+    .navigation {
+    display:flex;
+    gap: 25px;
+    }
+    .navigation a {
+    text-decoration: none;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color:#C3C0C0;
+    transition:color 0.2s;
+    right: 1000px;
+    }
+    .navigation a:hover {
+    color: white;
+    }
+    .navigation a.active {
+    color: chocolate;
+    }
+    .linear_1{
+    border: none;
+    height: 1px;
+    background-color: #1B0446;
+    margin: 20px 0;
+    }
+    .information_1{
+    color: #fff;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    }
+    .information_1 h1{
+    color: #fff;
+    font-size:55px;
+    font-weight: bold;
+    line-height: 1;
+    }
+    .information_1 p{
+    color: #C3C0C0;
+    font-size:24px ;
+    width: 600px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    }
+    .review {
+    width: 360px;
+    min-height: 280px; 
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    border: 1px solid #a76002;
+    padding: 25px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    }
+    .reviews {
+    display: flex;
+    gap: 25px;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap:wrap;
+    max-width: 1200px;
+    }
+    .stars {
+    margin-bottom: 12px;
+    color: #F59E0B;
+    font-size: 22px;
+    letter-spacing: 3px
+    }
+    .review p{
+    font-size: 15px;
+    font-weight: normal;
+    margin-top: 10px;
+    color: #fff;
+    line-height: 1.4;
+    flex-grow: 1;  
+    }
+    .review h2{
+    font-size:20px;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #F59E0B;
+    line-height: 1.25; 
+    min-height: 42px;  
+    }
+    .review h1{
+    font-size:25px;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #fff;
+    line-height: 1;    
+    }
+    .footer{  
+    background-color: #040110;
+    text-align: center;
+    padding: 30px;
+    font-size: 14px;
+    }
+    .footer p {
+    color: #696868;
+    }
+    .block1{
+    display: flex;
+    gap: 40px;
+    max-width: 650px;
+    margin: 35px auto 0 auto;
+    box-sizing: border-box;
+    }
+    .everything_reviews{
+    flex: 1;
+    padding: 15px 40px;
+    border-radius: 15px;
+    border: 1px solid #a76002;
+    background-color: #ffffff0d;
+    text-align: center;
+    }
+    .everything_reviews h1{
+    font-size: 20px;
+    font-weight: normal;
+    color:#fff
+    }
+    .my_review{
+    flex: 1;
+    padding: 15px 40px;
+    border-radius: 15px;
+    border: 1px solid #a76002;
+    background-color: #ffffff0d;
+    text-align: center;
+    }
+    .my_review h1{
+    font-size: 20px;
+    font-weight: normal;
+    color: #fff;    
+    }
+    .thanks{
+    padding: 25px 30px;
+    border-radius: 20px;
+    border: 1px solid #a76002;
+    background-color: #ffffff0d;   
+    color: #fff; 
+    margin: 30px auto 60px auto;
+    width: 100%;
+    max-width: 650px;
+    box-sizing: border-box;
+    text-align: center;
+    }
+    .thanks h1{
+    font-size:20px;  
+    font-weight: normal; 
+    margin: 0 0 15px 0;
+    line-height: 1.3; 
+    }
+    .heart-icon {
+    width: 32px;
+    height: 32px;
+    fill: #F59E0B; 
+    display: block;
+    margin: 0 auto;
+    }
+</style>
+<body>
+    <header class="header">
+    <div class="logo-block">
+    <div class="icon-up"><b>В</b></div>
+    <div class="logo-text">
+    <h1>Вячеслав</h1>
+    <p>Недвижимость в Караганде</p>
+    </div>
+    </div>
+    <div class="navigation">
+    <a href="index.html" style="color: #C3C0C0;">Главная</a>
+    <a href="services.html" style="color: #C3C0C0;">Услуги и ипотека</a>
+    <a href="reviews.html" style="color: chocolate;">Отзывы</a>
+    <a href="contacts.html" style="color: #C3C0C0;">Контакты</a>
+    </div>
+    </header>
+    <hr class="linear_1">
+    <div class="information_1">
+    <h1>Истории успеха клиентов</h1>
+    <p>Реальные кейсы и отзывы жителей Караганды, решивших свой жилищный вопрос.</p>
+    </div>
+    <div class="reviews">
+    <div class="review"><div class="stars">★★★★★</div>
+    <p class="review_p">«Обратились к Вячеславу для быстрой продажи 2-комнатной квартиры на Юго-Востоке. Вячеслав сделал классные видео для TikTok, и покупатель нашлся буквально за 12 дней!»</p>
+    <h2 class="review_h2">Кейс: Продали 2-комн. на Юго-Востоке</h2>
+    <h1 class="review_h1">Семья Сериковых</h1>    
+    </div>
+    <div class="review"><div class="stars">★★★★★</div>
+    <p class="review_p">«Нужна была ипотека через Отбасы Банк. Были сложности с подтверждением доходов, но Вячеслав грамотно всё оформил. В итоге мы уже переехали в Центр!»</p>
+    <h2 class="review_h2">Кейс: Покупка по ипотеке в центре города</h2>
+    <h1 class="review_h1">Алексей М.</h1>    
+    </div>
+    <div class="review"><div class="stars">★★★★★</div>
+    <p class="review_p">«Опасались покупать квартиру с обременением в Майкудуке. Вячеслав проверил всё до мельчайших деталей и провел безопасный расчет через нотариуса. Огромное спасибо!»</p>
+    <h2 class="review_h2">Кейс: Сложное юридическое сопровождение</h2>
+    <h1 class="review_h1">Динара и Олжас</h1>    
+    </div>
+    <div class="review hidden-review" style="display: none;">
+    <div class="stars">★★★★★</div>
+    <p class="review_p">«Покупали 3-комнатную квартиру в Пришахтинске. Вячеслав договорился о хорошей скидке с продавцом и полностью взял на себя оформление документов. Очень грамотный специалист!»</p>
+    <h2 class="review_h2">Кейс: Выгодный торг и покупка 3-комн.</h2>
+    <h1 class="review_h1">Арман и Гульназ</h1>
+    </div>
+    <div class="review hidden-review" style="display: none;">
+    <div class="stars">★★★★★</div>
+    <p class="review_p">«Быстро помог сдать коммерческую недвижимость под бизнес. Нашел надежных арендаторов буквально за 3 дня! Будем сотрудничать и дальше.»</p>
+    <h2 class="review_h2">Кейс: Аренда коммерческой недвижимости</h2>
+    <h1 class="review_h1">ИП «Темиров»</h1>
+    </div>
+    <div class="review hidden-review" style="display: none;">
+    <div class="stars">★★★★★</div>
+    <p class="review_p">«Помог провести сложную сделку по обмену двухкомнатной квартиры на дом с доплатой. Всё прошло максимально прозрачно, спокойствие и безопасность на 100%!»</p>
+    <h2 class="review_h2">Кейс: Раздел и обмен недвижимости</h2>
+    <h1 class="review_h1">Елена Владимировна</h1>
+    </div>
+    </div>
+    <div class="block1"><div class="everything_reviews"><h1>Смотреть все отзывы</h1></div>
+    <a href="https://wa.me/77000000000" target="_blank" class="my_review" style="text-decoration: none;">
+    <h1>Оставить свой отзыв</h1></a>
+    </div>
+    <div class="thanks"><h1>Благодарю вас за ваши отзывы и приятное сотрудничество</h1>
+    <svg class="heart-icon" viewBox="0 0 24 24">
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+    </svg>
+    </div>
+    <div class="footer">
+    <p>© 2026 Риэлтор Вячеслав. Недвижимость в Караганде.</p>
+    </div>
+    <script>
+    const btn=document.querySelector('.everything_reviews');
+    btn.style.cursor='pointer'
+    btn.addEventListener('click',()=>{
+    const hidden=document.querySelectorAll('.hidden-review');
+    const isHidden=hidden[0].style.display==="none";
+    hidden.forEach(card=>card.style.display=isHidden ? 'flex' : 'none');
+    btn.querySelector('h1').innerText=isHidden ? 'Скрыть отзывы' : 'Смотреть все отзывы';
+    })
+    </script>
+</body>
+</html>

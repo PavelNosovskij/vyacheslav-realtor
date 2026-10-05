@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вячеслав — Риэлтор в Караганде</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            background-color: #0A022A;
+            color: white;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding:20px 40px;
+        }
+       .logo-block {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .icon-up {
+            width:45px;
+            height:45px;
+            background-color: rgba(217, 119, 6, 0.1);
+            border-radius: 10px;
+            display:flex;
+            align-items:center;
+            justify-content: center;
+            color: #F59E0B;
+            font-size: 22px;
+            border: 2px solid #F59E0B;
+        }
+        .logo-text h1 {
+            margin: 0;
+            font-size: 25px;
+            color: white;
+            line-height:1;
+        }
+        .logo-text p {
+            margin: 4px 0 0 0;
+            font-size: 14px;
+            color: chocolate;
+        }
+        .navigation {
+            display:flex;
+            gap: 25px;
+        }
+        .navigation a {
+            text-decoration: none;
+            font-size: 16px;
+            text-transform: uppercase;
+            font-weight: 600;
+            color:#C3C0C0;
+            transition:color 0.2s;
+            right: 1000px;
+        }
+        .navigation a:hover {
+            color: white;
+        }
+        .navigation a.active {
+            color: chocolate;
+        }
+        .svaz {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 15px;
+            float:left;
+            margin-left: 100px;
+        }
+        h1:not(.consultation-title) {
+            font-size: 30px;
+            color: white;
+        }
+        p{
+            font-size: 15px;
+            color: white;
+        }
+
+        hr{
+            height: 1px;
+            background-color: white;
+        }
+        .years-work{
+           background-color: rgba(217, 119, 6, 0.1);
+           border-radius: 20px;
+           padding: 10px 20px;
+           text-align: center;
+           margin-left: 40px;
+           margin-top: 20px;
+           color: #F59E0B;
+           border: 2px solid #F59E0B;
+           width: 300px;
+           font-size: 20px;
+           font-weight: bold;
+        }
+        .linear, .linear_2{
+            border: none;
+            height: 1px;
+            background-color: #1B0446;
+            margin: 20px 0;
+        }
+        .information h1 {
+            font-size: 70px;
+            font-weight: bold;
+            width: 60%;
+            line-height: 1.1;
+            margin-left: 45px;
+            margin-top: 10px;
+        }
+        .information p {
+            font-size: 20px;
+            width: 40%;
+            margin-left: 45px;
+            margin-top: 10px;
+            color: #fff;
+            font-weight: semi-bold;
+        }
+        .highlight {
+            color: #F59E0B;
+        }
+        .profile {
+            position:absolute;
+            top: 135px;
+            right: 80px;
+            background-color:#ffffff0d;
+            border-radius: 25px;
+            padding: 20px;
+            width: 400px;
+            height: 480px;
+            text-align: center;
+            border: 1px solid #F59E0B;
+        }
+        .profile img {
+            width: 350px;
+            height: 350px;
+            border-radius: 20px;
+        }.profile h1 {
+            font-size: 30px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .consultation {
+            background-color: orange;
+            border-radius: 20px;
+            padding:12px 20px;
+            text-align: center;
+            margin-left: 40px;
+            margin-top: 25px;
+            color: black;
+            width: 300px;
+            font-weight: bold;
+        }
+        .button-ipoteka {
+            background-color: #ffffff1a;
+            border-radius: 20px;
+            padding: 10px 20px;
+            text-align: center;
+            margin-left: 20px;
+            margin-top: 25px;
+            color: #fff;
+            width: 300px;
+            border: 3px solid #ffffff1a;
+            font-weight:bold;
+        }
+        .buttons {
+            display: flex;
+            gap: 20px;
+        }
+        .information_block {
+            display: flex;
+            gap: 70px;
+            margin-top: 45px;
+            margin-left:auto;
+            margin-right:auto;
+            width: fit-content;
+            margin-bottom: 0px;
+        } .information_block h1 {
+            font-size: 50px;
+            font-weight: bold;
+            text-align: center;
+            margin:0;
+            line-height: 1;
+        }
+        .information_block p {
+            font-size: 20px;
+            text-align: center;
+            color: #C3C0C0;
+            margin: 8px 0 0 0;
+        }
+        .background-block2 {
+            background-color: #080120;
+            margin-top: 50px;
+        }
+        .information_3 {
+            padding: 40px 20px 20px 20px;
+            text-align: center;
+        }
+        .information_3 h1 {
+            font-size: 50px;
+            font-weight: bold;
+            margin:0;
+            line-height: 1.2;
+        }
+        .information_3 p {
+            font-size: 20px;
+            color: #C3C0C0;
+            margin: 10px auto 15px auto;
+            width:100%;
+            max-width: 600px;
+        }
+        .information_3_h6 {
+            display:flex;
+            justify-content: center;
+            gap: 30px;
+            font-size: 20px;
+            color: #C3C0C0;
+            margin: 0 auto 25px auto;
+        }
+        #map {
+            height: 550px;
+            width: 80%;
+            max-width: 1200px;
+            margin: 0 auto;
+            border: 1px solid #F59E0B;
+            border-radius: 10px;
+            z-index: 1;
+            margin: 20px auto 0 auto;
+        }
+        .footer{  
+            background-color: #040110;
+            text-align: center;
+            padding: 30px;
+            font-size: 14px;
+        }
+        .footer p {
+            color: #696868;
+        }
+        .plus{
+            width: 60px;
+            height: 60px;
+            margin-left: 10px;
+            margin-top:10px;
+            padding-top: 0px;
+            background-color: #FFF;
+            color:black;
+            font-size: 60px;
+            font-weight: bold;
+            text-align: center;
+            border-radius:5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+            padding: 0;
+        }
+        .minus{
+            width: 60px;
+            height: 60px;
+            padding-top: 0px;
+            background-color: #FFF;
+            margin-left: 10px;
+            margin-top:10px;
+            color:black;
+            font-size: 60px;
+            font-weight: bold;
+            text-align: center;
+            border-radius:5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo-block">
+            <div class="icon-up"><b>В</b></div>
+        <div class="logo-text">
+            <h1>Вячеслав</h1>
+            <p>Недвижимость в Караганде</p>
+        </div>
+        </div>
+    <div class="navigation">
+    <a href="index.html" style="color: chocolate;">Главная</a>
+    <a href="services.html" style="color: #C3C0C0;">Услуги и ипотека</a>
+    <a href="reviews.html" style="color: #C3C0C0;">Отзывы</a>
+    <a href="contacts.html" style="color: #C3C0C0;">Контакты</a>
+    </div>
+</header>
+    <hr class="linear">
+    <div class="years-work"><h3>11 лет экспертного опыта</h3></div>
+    <div class="information"><h1>Безопасная продажа недвижимости в <span class="highlight">Караганде</span></h1>
+    <p>Помогаю выгодно продать квартиру или подобрать идеальное жильё с гарантиями юридической чистоты. Полное сопровождение сделки и помощь с ипотекой.</p></div>
+    <div class="profile">
+    <img src="фотографии/профиль.jpeg" alt="profile">
+    <h1>Вячеслав</h1>
+    <span class="highlight">Частный риэлтор/эксперт по недвижимости</span>
+    </div>
+    <div class="buttons">
+    <div class="consultation"><h1 class="consultation-title">Бесплатная консультация</h1></div>
+    <div class="button-ipoteka"><a href="#ipotec">Рассчитать ипотеку</a></div>
+    </div>
+    <div class="information_block">
+    <div class="information_2_h1"><h1>450+</h1><p>Успешных сделок</p></div>
+    <div class="information_2_h1"><h1>11 лет</h1><p>На рынке Караганды</p></div>
+    <div class="information_2_h1"><h1>99%</h1><p>Одобрения ипотеки</p></div>
+    </div>
+    </div>
+    <div class="background-block2">
+    <div class="information_3">
+    <h1>Объекты на карте Караганды</h1>
+    <p>Исследуйте актуальные предложения в продаже и успешно реализованные объекты.</p>
+    <div class="information_3_h6">
+    <h6>🟠 В продаже</h6>
+    <h6>🟢 Продано</h6>
+    </div>
+    <div id="map">
+        <div class="plus">+</div>
+        <div class="minus">-</div>
+    </div>
+    </div>
+    </div>
+    <div class="footer">
+        <p>© 2026 Риэлтор Вячеслав. Недвижимость в Караганде.</p>
+    </div>
+    <script>
+    const map = L.map('map').setView([49.802, 73.102], 12);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    maxZoom: 19,
+    attribution: '© OpenStreetMap'
+    }).addTo(map);
+    const properties=[
+        {
+            lat:49.785,
+            lng:73.118,
+            title:'2-ух комнатная кв-ра,Юго-Восток',
+            price:'24 500 000 ₸',
+            status:'sale',
+            img:'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=300'
+        },
+        { 
+        lat: 49.808, 
+        lng: 73.085, 
+        title: '3-комн., Центр (Нуркен)', 
+        price: '38 000 000 ₸', 
+        status: 'sale', 
+        img: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=300' 
+    },
+    { 
+        lat: 49.835, 
+        lng: 73.145, 
+        title: '1-комн., Майкудук', 
+        price: '12 800 000 ₸', 
+        status: 'sold', 
+        img: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=300' 
+    },
+    { 
+        lat: 49.792, 
+        lng: 73.135, 
+        title: 'ЖК Гульдер', 
+        price: '31 000 000 ₸', 
+        status: 'sold', 
+        img: 'https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=300' 
+    }
+    ];
+    properties.forEach(item=>{
+    const isSale=item.status==="sale";
+    const markerColor=isSale ? '#F59E0B' : '#10B981';
+    const marker=L.circleMarker([item.lat, item.lng],{
+        radius:9,
+        fillColor:markerColor,
+        color:'#ffffff',
+        weight:2,
+        opacity:1,
+        fillOpacity:0.9
+    }).addTo(map);
+    const popurContent=`
+        <div style="color: #000; padding: 5px; font-family: sans-serif;">
+            <img src="${item.img}" style="width: 100%; height: 100px; object-fit: cover; border-radius: 8px; margin-bottom: 8px;">
+            <div style="font-size: 11px; font-weight: bold; color: ${markerColor}; text-transform: uppercase; margin-bottom: 4px;">
+                ${isSale ? '🟠 В продаже' : '🟢 Успешно продано'}
+            </div>
+            <h4 style="margin: 0 0 4px 0; font-size: 14px;">${item.title}</h4>
+            <p style="margin: 0 0 8px 0; font-weight: bold; font-size: 14px; color: #D97706;">${item.price}</p>
+            <a href="https://wa.me/77000000000?text=Здравствуйте,%20интересует%20объект:%20${encodeURIComponent(item.title)}" 
+               target="_blank" 
+               style="display: block; text-align: center; background: #0A022A; color: #fff; text-decoration: none; padding: 6px; border-radius: 6px; font-size: 12px; font-weight: bold;">
+                Написать в WhatsApp
+            </a>
+        </div>
+    `;
+    marker.bindPopup(popurContent);
+    })
+    </script>
+</body>
+</html>

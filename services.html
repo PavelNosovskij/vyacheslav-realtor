@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="[https://unpkg.com/lucide@latest](https://unpkg.com/lucide@latest)"></script>
+    <style>
+        body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        background-color: #0A022A;
+        color: white;
+        }
+        header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding:20px 40px;
+        }
+        .logo-block {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        }
+        .icon-up {
+        width:45px;
+        height:45px;
+        background-color: rgba(217, 119, 6, 0.1);
+        border-radius: 10px;
+        display:flex;
+        align-items:center;
+        justify-content: center;
+        color: #F59E0B;
+        font-size: 22px;
+        border: 2px solid #F59E0B;
+        }
+        .logo-text h1 {
+        margin: 0;
+        font-size: 25px;
+        color: white;
+        line-height:1;
+        }
+        .logo-text p {
+        margin: 4px 0 0 0;
+        font-size: 14px;
+        color: chocolate;
+        }
+        .navigation {
+        display:flex;
+        gap: 25px;
+        }
+        .navigation a {
+        text-decoration: none;
+        font-size: 16px;
+        text-transform: uppercase;
+        font-weight: 600;
+        color:#C3C0C0;
+        transition:color 0.2s;
+        right: 1000px;
+        }
+        .navigation a:hover {
+        color: white;
+        }
+        .navigation a.active {
+        color: chocolate;
+        }
+        .linear_1{
+        border: none;
+        height: 1px;
+        background-color: #1B0446;
+        margin: 20px 0;
+        }
+        .information_1{
+        color: #fff;
+        width: 80%;
+        margin: 0 auto;
+        text-align: center;
+        }
+        .information_1 h1{
+        color: #fff;
+        font-size:55px;
+        font-weight: bold;
+        }
+        .information_1 p{
+        color: #C3C0C0;
+        font-size:24px ;
+        }
+        .services{
+        display:flex;
+        gap:35px;
+        margin: 0 auto;
+        justify-content: center;
+        }
+        .service{
+        width: 260px;
+        height: 240px;
+        padding: 20px;
+        background-color: #ffffff0d;
+        border-radius:15px;
+        border: 1px solid #a76002;
+        }
+        .service h1{
+        font-size:45px;
+        font-weight: bold;
+        margin-top: 10px;
+        color: #fff;
+        line-height: 0;
+        }
+        .service p{
+        font-size: 18px;
+        margin-top: 10px;
+        color: #C3C0C0;
+        }
+        .service svg{
+        width: 35px;
+        height: 35px;
+        background-color: #252001;
+        border:1px solid #F59E0B;
+        border-radius: 15px;
+        padding: 8px;
+        }
+        .button_WhatsApp{
+        display: block;
+        text-decoration: none;
+        font-size: 40px;
+        font-weight: bold;
+        background-color: #f5780b;
+        border-radius: 10px;
+        color: #000;
+        margin: 0 auto;
+        margin-top: 50px;
+        padding: 8px;
+        padding-left: 25px;
+        padding-right: 25px;
+        width: max-content;
+        }
+        .block_2{
+        background-color: #080120;
+        margin-top: 60px;
+        padding-top: 20px;
+        }
+        .information_2{
+        color: #fff;
+        width: 80%;
+        margin: 0 auto;
+        text-align: center;
+        }
+        .information_2 h1{
+        color: #fff;
+        font-size: 45px;
+        font-weight: bold;
+        margin: 0;       
+        line-height: 1.1;
+        margin-top: 20px;
+        }
+        .information_2 p{
+        color: #C3C0C0;
+        font-size:18px ;
+        max-width: 600px;
+        margin: 0 auto;
+        margin: 10px auto 35px auto;
+        }
+        .calculator{
+        background-color: #f59f0b06;
+        border: 1px solid #f5780b;
+        border-radius: 20px;
+        padding: 35px;
+        margin: 0 auto;
+        width: 65%;
+        height: max-content;
+        margin-bottom: 80px;
+        }
+        .calc-row {
+        display: flex;
+        justify-content: space-between; 
+        align-items: center;
+        margin-top: 15px;
+        margin-bottom: 8px;
+        }
+        .calc-row p:first-child {
+        color:#fff;
+        }
+        .calc-row p:last-child{
+        color: #f5780b;
+        font-size: 22px;
+        }
+        input[type="range"] {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 100%;
+        height: 8px;
+        background: #1B0446;           
+        border-radius: 10px;
+        outline: none;
+        margin-bottom: 20px;
+        } 
+        input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        background: #f5780b;          
+        cursor: pointer;
+        box-shadow: 0 0 8px rgba(245, 120, 11, 0.5);
+        } 
+        #monthlyPayment{
+        font-size: 50px;
+        }
+        .result{
+        background-color: #050116;
+        border-radius: 15px;
+        padding: 20px 30px;
+        margin-top: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center ;
+        }
+        .result h3{
+        font-size: 32px;
+        color: #f5780b;
+        margin: 0;
+        font-weight: bold;
+        }
+        .result p{
+        font-size: 30px;
+        color: #fff;
+        margin: 0 0 5px 0;
+        text-transform: uppercase;
+        font-weight: bold;
+        }
+        .button_consultation{
+        padding: 24px 34px;
+        display: flex;
+        background-color: #f5780b;
+        color: #000;
+        border-radius: 12px;
+        border: none;
+        font-size: 26px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.2s;
+        }
+        .button_consultation:hover {
+        background-color: #fe9012;
+        } 
+        .footer{  
+        background-color: #040110;
+        text-align: center;
+        padding: 30px;
+        font-size: 14px;
+        }
+        .footer p {
+        color: #696868;
+        }
+    </style>
+</head>
+<body>
+    <div class="block_1">
+    <header class="header">
+        <div class="logo-block">
+            <div class="icon-up"><b>В</b></div>
+        <div class="logo-text">
+            <h1>Вячеслав</h1>
+            <p>Недвижимость в Караганде</p>
+        </div>
+        </div>
+    <div class="navigation">
+    <a href="index.html" style="color: #C3C0C0;">Главная</a>
+    <a href="services.html" style="color: chocolate;">Услуги и ипотека</a>
+    <a href="reviews.html" style="color: #C3C0C0;">Отзывы</a>
+    <a href="contacts.html" style="color: #C3C0C0;">Контакты</a>
+    </div>
+    </header>
+    <hr class="linear_1">
+    <div class="information_1">
+        <h1>Услуги риэлтора</h1>
+        <p>Полный комплекс услуг по недвижимости с гарантией безопасности сделки.</p>
+    </div>
+    <div class="services">
+        <div class="service">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+            <h2>Продажа недвижимости</h2>
+            <p>Оценка, профессиональная фотосъемка, маркетинг в TikTok/Instagram и продажа по максимальной цене.</p>
+        </div>
+        <div class="service">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            <h2>Покупка квартиры</h2>
+            <p>Подбор вариантов под ваш бюджет, проверка юридической чистоты и аргументированный торг.</p>
+        </div>
+        <div class="service">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><line x1="19" y1="5" x2="5" y2="19"></line><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg>
+            <h2>Помощь с ипотекой</h2>
+            <p>Подбор вариантов под ваш бюджет, проверка юридической чистоты и аргументированный торг.</p>
+        </div>
+        <div class="service">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <h2>Юр.сопровождение</h2>
+            <p>Проверка документов, составление задатков, нотариальное оформление и безопасность расчетов.</p>
+        </div>
+    </div>
+        <a href="https://wa.me/77000000000" target="_blank" class="button_WhatsApp">
+    WhatsApp
+</a>
+</div>
+<div class="block_2">
+    <div class="information_2">
+        <h1>Ипотечный калькулятор</h1>
+        <p>Рассчитайте ориентировочный ежемесячный платеж по недвижимости в Караганде.</p>
+    </div>
+    <div class="calculator">
+        <div class="calc-row">
+        <h3>Стоимость недвижимости:</h3>
+        <p id="priceVal">25 000 000 ₸</p>
+        </div>
+        <input type="range" id="priceRange" min="5000000" max="80000000" step="500000" value="25000000">
+        <div class="calc-row">
+        <h3>Первоначальный взнос (20%):</h3>
+        <p id="downPaymentVal">5 000 000 ₸</p>
+        </div>
+        <input type="range" id="downPaymentRange" min="0" max="40000000" step="500000" value="5000000">
+        <div class="calc-row">
+        <h3>Срок кредитования:</h3>
+        <p id="yearsVal">15 лет</p>
+        </div>
+        <input type="range" id="yearsRange" min="1" max="25" step="1" value="15">
+        <div class="calc-row">
+        <h3>Процентная ставка (%):</h3>
+        <p id="rateVal">7%</p>
+    </div>
+    <input type="range" id="rateRange" min="3.5" max="20" step="0.5" value="7">
+        <div class="result">
+        <div>
+        <h3>Ежемесячный платеж:</h3> 
+        <p id="monthlyPayment">179 766 ₸ / мес</p>
+        </div>
+        <button id="calcApplyBtn" class="button_consultation">Подать заявку на ипотеку</button>
+    </div>
+</div>
+<div class="footer">
+        <p>© 2026 Риэлтор Вячеслав. Недвижимость в Караганде.</p>
+    </div>
+<script>
+    if (typeof lucide !== 'undefined') {
+    lucide.createIcons();
+    }
+    const priceRange=document.getElementById('priceRange')
+    const downPaymentRange=document.getElementById('downPaymentRange')
+    const yearsRange=document.getElementById('yearsRange')
+    const rateRange=document.getElementById('rateRange')
+    function calculateMortgage(){
+    const price=parseFloat(priceRange.value)
+    let downPayment=parseFloat(downPaymentRange.value)
+    if(downPayment>=price){
+        downPayment=price*0.9;
+        downPaymentRange.value=downPayment;
+    }
+    const years=parseInt(yearsRange.value)
+    const rate=parseFloat(rateRange.value)
+    document.getElementById('priceVal').innerText=price.toLocaleString('ru-RU')+' ₸';
+    document.getElementById('downPaymentVal').innerText=downPayment.toLocaleString('ru-RU')+`₸(${Math.round(downPayment/price*100)}%)`;
+    document.getElementById('yearsVal').innerText=years+' лет';
+    document.getElementById('rateVal').innerText=rate+'%'
+    const loanAmount=price-downPayment
+    const monthlyRate=(rate/100)/12
+    const totalMonths=years*12
+    let monthlyPayment=0
+    if(loanAmount>0 && monthlyRate>0){
+        monthlyPayment=loanAmount*(monthlyRate*Math.pow(1+monthlyRate,totalMonths))/(Math.pow(1+monthlyRate,totalMonths)-1)
+    }
+    document.getElementById('monthlyPayment').innerText=Math.round(monthlyPayment).toLocaleString('ru-RU')+' ₸/мес';
+    }
+    [priceRange,downPaymentRange,yearsRange,rateRange].forEach(input=>{
+        input.addEventListener('input',calculateMortgage);
+    })
+    calculateMortgage()
+    document.getElementById('calcApplyBtn').addEventListener('click',async()=>{
+        const phone=prompt('Введите ваш номер телефона для косультации по ипотеке:');
+        if(phone){
+            const message=`<b>Заявка на ипотеку из калькулятора!</b>\n\n<b>Стоимость:</b> ${priceRange.value} ₸\n<b>Первоначальный взнос:</b> ${downPaymentRange.value} ₸\n<b>Срок:</b> ${yearsRange.value} лет:\n<b>Телефон:</b> ${phone}`
+            await sendToTelegram(message);
+        }
+    })
+</script>
+</body>
+</html>
